@@ -1,4 +1,4 @@
-//@ts-ignore
+
 import moment from "moment";
 import { BsCloudMinusFill } from "react-icons/bs";
 import { WiThermometer } from "react-icons/wi";
