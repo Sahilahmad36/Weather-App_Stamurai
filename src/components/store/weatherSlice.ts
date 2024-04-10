@@ -22,13 +22,13 @@ export const saveWeatherData = createAsyncThunk(
     async (weatherData: WeatherData, { getState, rejectWithValue }) => {
         try {
             const state = getState();
-            //@ts-ignore
+           
 
             const existingWeatherData = state.weather.savedData.find(
                 (data) => data.resolvedAddress === weatherData.resolvedAddress
             );
             if (existingWeatherData) {
-                //@ts-ignore
+            
 
                 dispatch(
                     deleteWeatherData(existingWeatherData.resolvedAddress)
@@ -37,7 +37,7 @@ export const saveWeatherData = createAsyncThunk(
             WeatherLocalStorageService.setWeatherLocalStorage(weatherData);
             return weatherData;
         } catch (error) {
-            //@ts-ignore
+         
 
             return rejectWithValue(error.message);
         }
@@ -52,7 +52,7 @@ export const deleteWeatherData = createAsyncThunk(
     }
 );
 export const selectWeatherData = createAction("weather/selectWeatherData");
-// Initial state
+
 const initialState = {
     data: null,
     loading: false,
@@ -62,7 +62,7 @@ const initialState = {
     selectedData: null,
 };
 
-// Reducer oluşturma
+
 const weatherSlice = createSlice({
     name: "weather",
     initialState,
