@@ -13,10 +13,7 @@ const MySubscribed = () => {
     const savedAddresses = useSelector(
         (state: RootState) => state.weather.savedData
     );
-    // const currentWeatherData = useSelector(
-    //     (state: RootState) => state.weather.data
-    // );
-
+  
     useEffect(() => {
         const currentDate = new Date();
 
@@ -33,15 +30,12 @@ const MySubscribed = () => {
                     currentDate.getDate() === datetime.getDate();
 
                 if (!isSameDate && datetime < currentDate) {
-                    //@ts-ignore
                     dispatch(deleteWeatherData(weatherData.resolvedAddress));
                     const response = await dispatch(
-                        //@ts-ignore
                         fetchWeatherCity(weatherData.resolvedAddress)
                     );
                     if (fetchWeatherCity.fulfilled.match(response)) {
                         const updatedWeatherData = response.payload;
-                        //@ts-ignore
                         dispatch(saveWeatherData(updatedWeatherData));
                         updatedSavedAddresses.push(updatedWeatherData);
                     }
@@ -49,7 +43,6 @@ const MySubscribed = () => {
                     updatedSavedAddresses.push(weatherData);
                 }
             }
-            //@ts-ignore
             dispatch(setSavedData(updatedSavedAddresses));
         };
 
