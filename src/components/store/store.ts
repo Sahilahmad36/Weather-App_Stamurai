@@ -11,11 +11,10 @@ const initialState = {
 
 export const store = configureStore({
     reducer: {
-        //@ts-ignore
         weather: weatherSlice,
     },
     preloadedState: {
-        //@ts-ignore
+        
         weather: initialState,
     },
 });
